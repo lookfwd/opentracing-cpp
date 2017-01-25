@@ -19,17 +19,15 @@ int main()
 
     {
         // Application code
-        using Tc = Cpp11GlobalTracer;
+        auto tracer = Cpp11GlobalTracer::instance();
 
-        Tc tracer = Tc::instance();
-
-        std::shared_ptr<Tc::Span> span = tracer.start("hi");
+        auto span = tracer.start("hi");
 
         std::vector<opentracing::TextMapPair> pairs;
 
         tracer.inject(&pairs, *span);
 
-        std::shared_ptr<const Tc::SpanContext> ctx = tracer.extract(pairs);
+        auto ctx = tracer.extract(pairs);
     }
 
     // Cleanup
