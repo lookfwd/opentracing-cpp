@@ -1,7 +1,5 @@
 #include <app_tracing.h>
 
-#include <memory>
-
 /**
  * To run:
  * clear && g++ -I. -D__USE_XOPEN2K8 main.cpp build/opentracing/libopentracing.a -o main && ./main
